@@ -34,10 +34,11 @@ func main() {
 	defer fmt.Printf("Port closed %v\n", time.Now()) // シリアル切断時刻
 
 	buf := make([]byte, 100000) // 読み取る文字列の数だけバッファを多く取っておく
-	b, err := port.Read(buf)
+	_, err = port.Read(buf)
+	// b or _
 	check(err)
 
-	fmt.Printf("buffer %v\n", b)
-	fmt.Println("Read line: ")
+	// fmt.Printf("buffer %v\n", b)
+	// fmt.Println("Read line: ")
 	fmt.Println(string(buf))
 }
